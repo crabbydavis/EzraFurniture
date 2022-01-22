@@ -1,0 +1,57 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Contact Us</ion-title>
+    <ion-buttons slot="end">
+      <ion-menu-button autoHide="false"></ion-menu-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card>
+    <img src="assets/img/openclose.jpg" alt="image of designing custom furniture">
+    <ion-card-header>
+      <ion-card-title>
+        Let's Talk!
+      </ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <form [formGroup]="contactForm">
+        <textarea class="short-textarea" placeholder="How did you hear about us?" type="text" formControlName="hearAbout" (blur)="updateMessage()"></textarea>
+        <textarea class="short-textarea" placeholder="First Name" type="text" formControlName="firstName" (blur)="updateMessage()"></textarea>
+        <textarea class="short-textarea" placeholder="Last Name" type="text" formControlName="lastName" (blur)="updateMessage()"></textarea>
+        Is there a piece on the site you're interested in or do you have something custom in mind? Please be as specific as possible in your message.
+        <textarea class="message" placeholder="I was wondering if..." formControlName="message" (blur)="updateMessage()"></textarea>
+        <ion-button
+          expand="block"
+          shape="round"
+          [disabled]="contactForm.invalid"
+          href="mailto:ezrafurnitureco@gmail.com?subject=Furniture Inquiry&body={{emailMessage + contactForm.get('message').value}}"
+        >
+          Send
+        </ion-button>
+      </form>
+    </ion-card-content>
+  </ion-card>
+  <!-- <div class="wrapper">
+    <h3>Contact Us</h3>
+    <h4>We'd love to hear from you!</h4>
+    <div class="actions">
+      <ion-button href="sms:5554280940">
+        <ion-icon slot="icon-only" name="chatbubble"></ion-icon>
+      </ion-button>
+      <ion-button href="tel:5554280940">
+        <ion-icon slot="icon-only" name="call"></ion-icon>
+      </ion-button>
+      <ion-button href="mailto:d@d.com?subject={{emailSubject}}&body={{emailBody}}">
+        <ion-icon slot="icon-only" name="mail"></ion-icon>
+      </ion-button>
+    </div>
+  </div> -->
+  <!-- <ion-button href="https://www.facebook.com/Ezra-Furniture-Co-113584100111323/">
+    <ion-icon slot="icon-only" name="logo-facebook"></ion-icon>
+  </ion-button>
+  <ion-button href="https://www.instagram.com/ezra.furniture.co/?hl=en">
+    <ion-icon slot="icon-only" name="logo-instagram"></ion-icon>
+  </ion-button> -->
+</ion-content>

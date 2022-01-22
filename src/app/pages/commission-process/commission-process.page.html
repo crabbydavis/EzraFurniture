@@ -1,0 +1,75 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Commission Process</ion-title>
+    <ion-buttons slot="end">
+      <ion-menu-button autoHide="false"></ion-menu-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="selectors">
+    <div [class.active]="currentSection === Commission.Why" tappable (click)="slideTo(Commission.Why)">WHY GO CUSTOM?</div>
+    <div [class.active]="currentSection === Commission.How" tappable (click)="slideTo(Commission.How)">HOW DOES IT WORK?</div>
+    <div [class.active]="currentSection === Commission.Design" tappable (click)="slideTo(Commission.Design)">DESIGN</div>
+    <div [class.active]="currentSection === Commission.Cost" tappable (click)="slideTo(Commission.Cost)">COST AND TIMING</div>
+  </div>
+  <ion-slides *ngIf="loaded" [options]="slideOpts" (ionSlideDidChange)="updateCurrentSection()">
+    <ion-slide>
+      <ion-card [class.active]="currentSection === Commission.Why">
+        <img src="assets/img/cabinet.jpg">
+        <ion-card-header>
+          <ion-card-title>
+            Why go custom?
+          </ion-card-title>
+        </ion-card-header>
+        <ion-card-content>
+          <p>A custom or commissioned piece of furniture is a unique piece of functional art created for a specific place, person or use. Much of my work has come through commission and has allowed for me to create some amazing one-of-a-kind pieces of furniture. I enjoy the process of developing and designing custom work based on the specific needs of the client. I work with them to collaborate on a look, feel, design and function that we are both excited about.</p>
+        </ion-card-content>
+        <ion-button class="ion-margin" expand="block" shape="round" (click)="goToCommission()">Commission now</ion-button>
+      </ion-card>
+    </ion-slide>
+    <ion-slide>
+      <ion-card [class.active]="currentSection === Commission.How">
+        <img src="assets/img/desk.jpg">
+        <ion-card-header>
+          <ion-card-title>
+            How does it work?
+          </ion-card-title>
+        </ion-card-header>
+        <ion-card-content>
+          <p>A client reaches out to me because they like my aesthetic and have a piece in mind for a particular need. We talk about what the client needs in terms of dimensions, wood choice or aesthetic style. We also discuss the budget so that I can get an idea of how elaborate to make the design – hidden compartments, more complicated design, precious materials, etc. Finally, we discuss timing and shipping. I am often booked 6-8 months in advance, so I want to make sure that I can get the piece completed within the client’s timeframe. The shipping can vary depending on the time of year and size of a piece. I get an estimate on shipping that I email directly to the client and then we revisit when the piece is ready to ship. I do ship pieces internationally. It is a little more complicated but generally doable.</p>
+        </ion-card-content>
+        <ion-button class="ion-margin" expand="block" shape="round" (click)="goToCommission()">Commission now</ion-button>
+      </ion-card>
+    </ion-slide>
+    <ion-slide>
+      <ion-card [class.active]="currentSection === Commission.Design">
+        <img src="assets/img/dresser2.jpg">
+        <ion-card-header>
+          <ion-card-title>
+            Design
+          </ion-card-title>
+        </ion-card-header>
+        <ion-card-content>
+          <p>Once I have a better understanding of the clients needs and desires, I will sit down and make some quick sketches so that I can get feedback. I call these my chicken scratches. I do this so that we can quickly develop an idea and determine which directions work best. Once we have an idea of a particular design I will take it to a CAD (computer-aided design) and draw it 2D to give the client a better idea of proportions. Finally, I will take it to a 3D rendering on the computer to give the client a better overall feel for the piece.</p>
+        </ion-card-content>
+        <ion-button class="ion-margin" expand="block" shape="round" (click)="goToCommission()">Commission now</ion-button>
+      </ion-card>
+    </ion-slide>
+    <ion-slide>
+      <ion-card [class.active]="currentSection === Commission.Cost">
+        <img src="assets/img/desk.jpg">
+        <ion-card-header>
+          <ion-card-title>
+            Cost and timing
+          </ion-card-title>
+        </ion-card-header>
+        <ion-card-content>
+          <p>When it comes to custom piece of furniture, I spend a substantial amount of time not only considering the look and materials of the piece but also how the client will interact with it and how they can get the most joy out of every part of the commission. Each project is custom and I am often booked 6-8 months in advance, so I want to make sure that I can get the piece completed within the client’s timeframe. Once we have decided on the details of the piece, I ask for a 50% deposit to get going. This enables me to purchase the materials necessary and reserves your spot in my schedule so we can move forward.</p>
+        </ion-card-content>
+        <ion-button class="ion-margin" expand="block" shape="round" (click)="goToCommission()">Commission now</ion-button>
+      </ion-card>
+    </ion-slide>
+  </ion-slides>
+</ion-content>

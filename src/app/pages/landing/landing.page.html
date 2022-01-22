@@ -1,0 +1,57 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>
+      <!-- <img src="assets/img/ezralogo.png"> -->
+      Home
+    </ion-title>  
+    <ion-buttons slot="end">
+      <ion-menu-button autoHide="false"></ion-menu-button>
+    </ion-buttons>           
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="tile">
+    <div class="dark-overlay"></div>
+    <ion-icon class="logo" src="assets/icons/logo.svg"></ion-icon>
+    <!-- <img class="logo" src="assets/img/ezralogo.png"> -->
+    <img src="assets/img/oil.jpg">
+  </div>
+  <div class="spacer"></div>
+  <ion-slides *ngIf="banner.length > 0" pager="true" [options]="slideOpts">
+    <ion-slide *ngFor="let image of banner">
+      <img [src]="image.image">
+    </ion-slide>
+  </ion-slides>
+  <div class="spacer"></div>  
+  <div class="tile">
+    <div class="tile-dark">
+      <h3>Design</h3>
+      <div>Each and every piece that we build was designed by us, for you.  Know exactly what you want? No problem, let us know.</div>
+    </div>
+    <img src="assets/img/design.jpg">
+  </div>
+  <div class="spacer"></div>
+  <div class="tile">
+    <div class="tile-dark" [@fadeIn]="card2State">
+      <h3>Build</h3>
+      <div>Everything we make is hand built from high quality, responsibly sourced lumber to give you the product you’ve been waiting for.</div>
+    </div>
+    <img lifeIsVisible (isVisible)="card2State = 'visible'" src="assets/img/build.jpg">
+  </div>
+  <div class="spacer"></div>
+  <!-- lifeIsVisible (isVisible)="" -->
+  <div class="tile">
+    <div class="tile-dark" [@fadeIn]="card3State">
+      <h3>Deliver</h3>
+      <div>Get your project delivered and installed, anywhere in Utah.</div>
+    </div>
+    <img lifeIsVisible (isVisible)="card3State = 'visible'" src="assets/img/dresser.jpg">
+  </div>
+  <div class="spacer"></div>
+  <section class="accent">
+    <h3 class="ion-text-center">Why go custom?</h3>
+    <p>A custom or commissioned piece of furniture is a unique piece of functional art created for a specific place, person or use. Much of my work has come through commission and has allowed for me to create some amazing one-of-a-kind pieces of furniture. I enjoy the process of developing and designing custom work based on the specific needs of the client. I work with them to collaborate on a look, feel, design and function that we are both excited about.</p>
+    <ion-button color="light" expand="block" fill="outline" (click)="goToCommissionProcess()">Learn More</ion-button>
+  </section>
+</ion-content>

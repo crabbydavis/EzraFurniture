@@ -1,0 +1,49 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>{{ details.name }}</ion-title>
+    <ion-buttons slot="end">
+      <ion-menu-button autoHide="false"></ion-menu-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <app-loading *ngIf="isLoading"></app-loading>
+  <section *ngIf="!isLoading" class="slide-down">
+    <ion-slides *ngIf="details?.images?.length > 0" pager="true" [options]="options">
+      <ion-slide *ngFor="let pic of details?.images">
+        <ion-card>
+          <img [src]="pic" alt="image of {{ details?.name }}">
+        </ion-card>
+      </ion-slide>
+    </ion-slides>
+    <ion-card>
+      <ion-card-header>
+        <ion-card-title>
+          {{ details?.name }}
+        </ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        {{ details?.description }}
+        <hr>
+        <ion-grid>
+          <ion-row>
+            <ion-col class="bold" size="4">Wood</ion-col>
+            <ion-col>{{ details?.wood }}</ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col class="bold" size="4">Features</ion-col>
+            <ion-col>{{ details?.features }}</ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col class="bold" size="4">Price</ion-col>
+            <ion-col>{{ details?.price }}</ion-col>
+          </ion-row>
+        </ion-grid>
+      </ion-card-content>
+    </ion-card>
+  </section>
+</ion-content>

@@ -1,0 +1,23 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Gallery</ion-title>
+    <ion-buttons slot="end">
+      <ion-menu-button autoHide="false"></ion-menu-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <app-loading *ngIf="isLoading"></app-loading>
+  <section *ngIf="!isLoading" class="slide-down">
+    <div *ngFor="let project of projects; let index = index;">
+      <div *ngIf="index > 0" class="spacer"></div>  
+      <div class="tile" tappable (click)="viewProjectDetails(project.name)">
+        <div class="tile-dark">
+          <h4>{{ project.name }}</h4>
+        </div>
+        <img [src]="project.image" [alt]="project.name + 'image'">
+      </div>
+    </div>
+  </section>
+</ion-content>

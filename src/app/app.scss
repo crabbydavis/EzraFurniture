@@ -1,0 +1,21 @@
+.contact-modal {
+    --height: 200px;
+    --width: 300px;
+    --border-radius: 20px;
+}
+
+// Global classes
+.slide-down {
+    animation: slide-down 0.4s ease;
+}
+
+@keyframes slide-down {
+    0% {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
